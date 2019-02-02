@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+import time
 
 
 headers = {
@@ -15,9 +16,15 @@ for url in urls:
     soup = BeautifulSoup(wb_data.text, 'lxml')
     imgs = soup.select('article > a> img')
     for img in imgs:
-        photo_url = img.get('src')
+        photo = img.get('src')
+        photo_url = photo.split(',')[0].strip()
         pic = requests.get(photo_url, headers=headers)
         file = open(path+photo_url.split('?')[0][-10:], 'wb')
         file.write(pic.content)
         file.close()
+        print(photo_url.split('?')[0][-10:])
+        time.sleep(1)
+
+        #https://images.pexels.com/photos/5834/nature-grass-leaf-green.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500 1x,
+        #https://images.pexels.com/photos/5834/nature-grass-leaf-green.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500 2x
 
