@@ -2,7 +2,6 @@ import requests
 import pymongo
 from lxml import etree
 
-
 client = pymongo.MongoClient('localhost', 2017)
 mydb = client.mydb
 timeline = mydb.timeline
