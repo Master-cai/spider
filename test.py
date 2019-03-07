@@ -1,5 +1,5 @@
 import time
-from multiprocess import pool
+from multiprocessing import Pool
 
 
 def run(fn):
@@ -15,7 +15,7 @@ if __name__ == '__main__':
         run(fn)
     e = time.time()
     print('执行时间:', e - s)
-    poo = pool.Pool()
-    r = poo.map(run, test)
+    pool = Pool(processes=3)
+    r = pool.map(run, test)
     e1 = time.time()
     print('执行时间:', e1 - e)
