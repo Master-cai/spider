@@ -1,0 +1,16 @@
+from selenium import webdriver
+driver = webdriver.PhantomJS()
+driver.get('https://www.douban.com/')
+driver.implicitly_wait(10)
+#driver.save_screenshot('douban.png')
+#driver.switch_to.frame(driver.find_element_by_xpath('//*[@id="anony-reg-new"]/div/div[1]/iframe'))
+#print(driver.page_source)
+#driver.save_screenshot('tmpl_account')
+
+#driver.find_element_by_name('phone').clear()
+#driver.find_element_by_name('phone').send_keys('17325223389')
+driver.find_element_by_xpath('//*[@id="anony-nav"]/div[1]/ul/li[1]/a').click()
+#driver.find_element_by_xpath('password').send_keys('413024asd***')
+#driver.find_element_by_class_name('btn btn-account btn-active').click()
+#print(driver.find_element_by_class_name('//div[@class="account-form"]/div/a').text)
+driver.save_screenshot('douban.png')
